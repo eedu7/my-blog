@@ -9,19 +9,18 @@ interface HomeLayoutProps {
 
 const HomeLayout = ({ children }: HomeLayoutProps) => {
 	return (
-		<>
-			<header className="px-4">
+		<div className="flex flex-col min-h-screen">
+			<header className="p-4">
 				<InfoNavbar />
-				<div className="divider"></div>
 			</header>
-			<main className="grid grid-cols-2 justify-center items-center max-w-7xl mx-auto p-4 my-8">
+			<main className="flex-grow space-y-8  md:grid grid-cols-2 justify-center items-center max-w-7xl mx-auto p-4">
 				{children}
 			</main>
-			<footer>
-				<div className="divider"></div>
+			<div className="divider h-0.5"></div>
+			<footer className="p-2">
 				<InfoPageFooter />
 			</footer>
-		</>
+		</div>
 	);
 };
 

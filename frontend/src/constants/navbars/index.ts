@@ -4,6 +4,30 @@ interface NavLinks {
 	title: string;
 }
 
+export const InfoPageFooterMobileLinks: NavLinks[] = [
+	{
+		id: "01",
+		href: "/about",
+		title: "About",
+	},
+	{
+		id: "02",
+		href: "/help",
+		title: "Help",
+	},
+	// TODO: Add links to their corresponding blogs
+	{
+		id: "03",
+		href: "#",
+		title: "Terms",
+	},
+	{
+		id: "04",
+		href: "#",
+		title: "Privacy",
+	},
+];
+
 export const InfoPageFooterLinks: NavLinks[] = [
 	{
 		id: "01",

@@ -1,0 +1,27 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "alembic>=1.15.1",
+    "asyncpg>=0.30.0",
+    "bcrypt>=4.3.0",
+    "cryptography>=44.0.2",
+    "fastapi[all]>=0.115.11",
+    "passlib>=1.7.4",
+    "pydantic>=2.10.6",
+    "pydantic-settings>=2.8.1",
+    "python-jose>=3.4.0",
+    "sqlalchemy>=2.0.39",
+]
+
+[dependency-groups]
+dev = [
+    "icecream>=2.1.4",
+    "ruff>=0.11.1",
+]
+
+[tool.ruff]
+exclude = ["pgdata"]

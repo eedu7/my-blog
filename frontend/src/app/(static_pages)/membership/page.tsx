@@ -1,13 +1,8 @@
-import {
-    INFO_LINK,
-    MembershipPageFooterLinks,
-    SIGN_IN_LINK,
-    SIGN_UP_LINK,
-} from "@/constants/navbars";
+import { MembershipPageFooterLinks } from "@/constants/navbars";
 import { MembershipPageHeader } from "@/modules/members/header";
+import { MemberShipHeroSection } from "@/modules/members/hero";
 import { Metadata } from "next";
 import Link from "next/link";
-import React from "react";
 
 export const metadata: Metadata = {
     title: "MyBlog Membership",
@@ -18,24 +13,7 @@ const MemberShipPage = () => {
         <>
             <MembershipPageHeader />
             <main>
-                {/* Hero Section */}
-                <section className="flex">
-                    <div>
-                        <h1>Support human stories</h1>
-                        <div>
-                            <p>
-                                Become a member to read without limits or ads, fund great writers,
-                                and join a global community of people who care about high-quality
-                                storytelling.
-                            </p>
-                            <div>
-                                {/* TODO: Open Sign In Modal */}
-                                <button>Get started</button>
-                                <a href="#plans">View plans</a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <MemberShipHeroSection />
                 {/* Why membership section */}
                 <section className="flex">
                     <div>

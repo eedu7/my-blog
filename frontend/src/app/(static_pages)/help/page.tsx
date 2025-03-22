@@ -24,7 +24,7 @@ const HelpPage = () => {
                         Can't find what you're looking for?
                     </p>
                     {/* TODO: Added a mailto link, to submit a help request */}
-                    <button className="btn btn-xs btn-primary text-xs">
+                    <button className="btn btn-xs md:btn-md btn-primary text-xs">
                         Submit a request
                     </button>
                 </section>

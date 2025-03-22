@@ -13,7 +13,7 @@ const HomeLayout = ({ children }: HomeLayoutProps) => {
 			<header className="p-4">
 				<InfoNavbar />
 			</header>
-			<main className="flex-grow space-y-8  md:grid grid-cols-2 justify-center items-center max-w-7xl mx-auto p-4">
+			<main className="flex-grow space-y-8 grid lg:grid-cols-2 justify-center items-center max-w-7xl mx-auto p-4">
 				{children}
 			</main>
 			<div className="divider h-0.5"></div>

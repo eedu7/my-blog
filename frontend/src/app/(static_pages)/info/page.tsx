@@ -1,7 +1,8 @@
-import AutumLeavesJPG from "@/constants/images";
 import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
+
+import AutumLeavesJPG from "@/constants/images";
 
 export const metadata: Metadata = {
 	title: "MyBlog: Read and write stories.",
@@ -24,11 +25,12 @@ const InfoPage = () => {
 					Start reading
 				</button>
 			</div>
-			<div className="flex justify-end">
+			{/* TODO: Remove this when in smaller screen, show this in the tablets */}
+			<div className="hidden h-[44rem] lg:flex justify-end">
 				<Image
 					src={AutumLeavesJPG}
 					alt="Autum Leaves Image"
-					className="rounded shadow-lg md:w-full md:h-full h-96 object-cover"
+					className="rounded shadow-lg object-cover"
 				/>
 			</div>
 		</>

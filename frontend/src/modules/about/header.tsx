@@ -7,7 +7,7 @@ export const AboutPageHeader = () => {
     const [SignIn, SignUp] = AboutPageNavLinks;
 
     return (
-        <header className="bg-gray-800 text-gray-300">
+        <header className="bg-gray-800 text-gray-200">
             <nav className="flex items-center justify-between p-2 md:p-4 lg:p-6">
                 <Link href={href}>
                     <h1 className="text-xl font-semibold md:text-4xl">{title}</h1>

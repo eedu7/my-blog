@@ -4,6 +4,7 @@ import {
     SIGN_IN_LINK,
     SIGN_UP_LINK,
 } from "@/constants/navbars";
+import { MembershipPageHeader } from "@/modules/members/header";
 import { Metadata } from "next";
 import Link from "next/link";
 import React from "react";
@@ -15,19 +16,7 @@ export const metadata: Metadata = {
 const MemberShipPage = () => {
     return (
         <>
-            <header>
-                <nav>
-                    <Link href={INFO_LINK.href}>MyBlog</Link>
-                    <ul>
-                        <li>
-                            <Link href={SIGN_IN_LINK.href}>Sign in</Link>
-                        </li>
-                        <li>
-                            <Link href={SIGN_UP_LINK.href}>Sign up</Link>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
+            <MembershipPageHeader />
             <main>
                 {/* Hero Section */}
                 <section className="flex">

@@ -36,6 +36,9 @@ export const AboutPageFooterLinks: NavLinks[] = [
     PRESS_LINK,
     HELP_LINK,
 ];
+
+export const MembershipPageFooterLinks: NavLinks[] = [...AboutPageFooterLinks, TERMS_LINK];
+
 export const InfoPageNavbarLinks: NavLinks[] = [
     ABOUT_LINK,
     MEMBERSHIP_LINK,

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const MemberShipHeroSection = () => {
     return (
-        <section className="space-y-4 p-2 md:flex md:h-[34rem] lg:p-4">
+        <section className="space-y-4 border-b border-gray-900 p-2 md:flex md:h-[34rem] lg:p-4">
             <div className="flex flex-col justify-between space-y-6 p-4 md:w-7/12 md:space-y-8 md:p-8 lg:w-8/12 xl:p-18">
                 <h1 className="text-2xl font-semibold text-gray-800 md:text-6xl">
                     Support human stories

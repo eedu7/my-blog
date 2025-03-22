@@ -19,12 +19,12 @@ const HelpPage = () => {
             <main>
                 <HelpSearchSection />
                 <HelpCardSection />
-                <section className="mt-8 flex h-64 flex-col items-center justify-center gap-8 bg-gray-100 p-2">
-                    <p className="text-4xl">
+                <section className="mt-8 flex h-44 flex-col items-center justify-center gap-8 bg-gray-100 p-2 md:h-64">
+                    <p className="text-center text-xl md:text-4xl">
                         Can't find what you're looking for?
                     </p>
                     {/* TODO: Added a mailto link, to submit a help request */}
-                    <button className="btn btn-primary text-sm">
+                    <button className="btn btn-xs btn-primary text-xs">
                         Submit a request
                     </button>
                 </section>

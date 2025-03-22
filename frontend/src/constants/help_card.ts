@@ -1,4 +1,3 @@
-import { HelpCardProps } from "@/modules/help/help-card";
 import {
     BookOpenIcon,
     BookOpenTextIcon,
@@ -10,6 +9,14 @@ import {
     PodcastIcon,
     UserCircle2Icon,
 } from "lucide-react";
+
+export interface HelpCardProps {
+    Icon: React.ElementType;
+    title: string;
+    description: string;
+    items: string[];
+    href: string;
+}
 
 // TODO: The items here, change them into object,
 // and attach a link to their corresponding page or blog post

@@ -1,11 +1,10 @@
 import {
+    HelpCardProps,
     partnerHelpCardData,
     termsHelpCardData,
     userHelpCardData,
 } from "@/constants/help_card";
-import { CompassIcon } from "lucide-react";
 import Link from "next/link";
-import React from "react";
 
 export const HelpCardSection = () => {
     return (
@@ -56,28 +55,21 @@ export const HelpCardSection = () => {
     );
 };
 
-// TODO: Fix the interface for the Icon and items
-export interface HelpCardProps {
-    Icon: Type;
-    title: string;
-    description: string;
-    items: any;
-    href: string;
-}
-
 const HelpCard = ({ Icon, title, description, items, href }: HelpCardProps) => {
     return (
         <div className="card border border-gray-200 p-2 shadow-md">
-            <div className="flex gap-4">
+            <div className="flex gap-2 md:gap-4">
                 <div>
-                    <Icon className="size-12" />
+                    <Icon className="size-8 md:size-12" />
                 </div>
                 <div className="flex flex-col space-y-4">
                     <div>
                         <h1 className="card-title">{title}</h1>
-                        <p className="text-sm text-gray-500">{description}</p>
+                        <p className="text-xs text-gray-500 md:text-sm">
+                            {description}
+                        </p>
                     </div>
-                    <ul className="list-disc space-y-2 text-sm">
+                    <ul className="list-disc space-y-2 text-xs md:text-sm">
                         {items.map((ele) => (
                             <li className="text-gray-500" key={ele}>
                                 {ele}
@@ -85,7 +77,10 @@ const HelpCard = ({ Icon, title, description, items, href }: HelpCardProps) => {
                         ))}
                     </ul>
                     <div>
-                        <Link href={href} className="btn btn-outline btn-sm">
+                        <Link
+                            href={href}
+                            className="btn btn-outline btn-xs md:btn-sm"
+                        >
                             See all
                         </Link>
                     </div>

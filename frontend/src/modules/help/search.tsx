@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const HelpSearchSection = () => {
     return (
-        <section className="h-96">
+        <section className="h-60 md:h-96">
             <div className="mx-auto flex h-full max-w-7xl flex-col items-center justify-center gap-8">
                 <h1 className="text-2xl md:text-4xl">How can we help?</h1>
                 <div className="group relative md:w-96">

@@ -13,12 +13,8 @@ const InfoPage = () => {
         <>
             <div className="space-y-4 md:space-y-8">
                 <div>
-                    <h1 className="text-4xl md:text-6xl font-semibold">
-                        Human
-                    </h1>
-                    <h1 className="text-4xl md:text-6xl font-semibold">
-                        stories & ideas
-                    </h1>
+                    <h1 className="text-4xl font-semibold md:text-6xl">Human</h1>
+                    <h1 className="text-4xl font-semibold md:text-6xl">stories & ideas</h1>
                 </div>
                 <p className="text-lg text-gray-500">
                     A place to read, write, and deepen your understanding.
@@ -28,11 +24,11 @@ const InfoPage = () => {
                 </button>
             </div>
             {/* TODO: Remove this when in smaller screen, show this in the tablets */}
-            <div className="hidden h-[44rem] lg:flex justify-end">
+            <div className="hidden max-h-96 justify-end lg:flex">
                 <Image
                     src={AutumLeavesJPG}
                     alt="Autum Leaves Image"
-                    className="rounded shadow-lg object-cover"
+                    className="rounded object-cover shadow-lg"
                 />
             </div>
         </>

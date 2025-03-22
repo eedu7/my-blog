@@ -1,13 +1,20 @@
+import { AboutPageHeader } from "@/modules/about/header";
+import { Metadata } from "next";
+import Link from "next/link";
 import React from "react";
 
+export const metadata: Metadata = {
+    title: "About MyBlog",
+};
+
 const AboutPage = () => {
-	return (
-		<div className="h-[100vh] w-[100vw] flex justify-center items-center">
-			<button className="text-4xl border p-4 rounded-md shadow-lg hover:shadow-2xl transition-all duration-100 cursor-pointer font-serif hover:text-purple-900">
-				AboutPage
-			</button>
-		</div>
-	);
+    return (
+        <>
+            <AboutPageHeader />
+            <main></main>
+            <footer></footer>
+        </>
+    );
 };
 
 export default AboutPage;

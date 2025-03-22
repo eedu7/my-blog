@@ -2,6 +2,7 @@ import { HelpPageNavbar } from "@/modules/help/navbar";
 import { Metadata } from "next";
 
 import { HelpSearchSection } from "@/modules/help/search";
+import { HelpCardSection } from "@/modules/help/help-card";
 
 export const metadata: Metadata = {
     title: "MyBlog Help Center",
@@ -15,6 +16,7 @@ const HelpPage = () => {
             </header>
             <main>
                 <HelpSearchSection />
+                <HelpCardSection />
             </main>
             <footer></footer>
         </div>

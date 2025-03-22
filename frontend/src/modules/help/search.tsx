@@ -16,7 +16,7 @@ export const HelpSearchSection = () => {
                 </div>
                 <div className="flex items-center gap-2">
                     <p className="text-xs">Popular:</p>
-                    <div className="flexflex-wrap flex items-center gap-1 text-xs md:gap-2 md:text-sm">
+                    <div className="flexflex-wrap flex items-center gap-1 text-[0.6rem] sm:text-sm md:gap-2">
                         {/* TODO: Add links of these */}
                         <Link className="link underline-offset-4" href="#">
                             Gifting

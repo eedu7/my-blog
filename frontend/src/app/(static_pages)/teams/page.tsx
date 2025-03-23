@@ -1,3 +1,4 @@
+import { GetInTouchSection } from "@/modules/teams/get-in-touch";
 import { TeamsPageHeader } from "@/modules/teams/header";
 import { TeamsHeroSection } from "@/modules/teams/hero";
 import { TeamsInfoSection } from "@/modules/teams/teams-info";
@@ -16,6 +17,7 @@ const TeamsPage = () => {
                 <TeamsHeroSection />
                 <TeamsMemberSection />
                 <TeamsInfoSection />
+                <GetInTouchSection />
             </main>
         </>
     );

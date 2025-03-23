@@ -1,3 +1,3 @@
 import { StaticPageHeader } from "../components/navbar";
 
-export const AboutPageHeader = StaticPageHeader;
+export const TeamsPageHeader = StaticPageHeader;

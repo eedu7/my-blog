@@ -22,6 +22,7 @@ export const MemberShipHeroSection = () => {
                 </div>
             </div>
             <div className="h-72 rounded md:h-auto md:w-5/12 lg:w-4/12">
+                {/* TODO: Change this image and use a Medium Member Story as a template here */}
                 <Image
                     src={GreenForest}
                     alt="Grren Forest"

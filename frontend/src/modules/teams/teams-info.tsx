@@ -23,9 +23,7 @@ export const TeamsInfoSection = () => {
     );
 };
 
-interface TeamInfoCardProps extends TeamInfoCard {}
-
-const TeamsInfoSectionCard = ({ imageSrc, title, description }: TeamInfoCardProps) => {
+const TeamsInfoSectionCard = ({ imageSrc, title, description }: TeamInfoCard) => {
     return (
         <div className="card bg-base-100 shadow-sm">
             <figure>

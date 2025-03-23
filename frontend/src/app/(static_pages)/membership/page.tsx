@@ -1,7 +1,7 @@
 import { MembershipPageFooterLinks } from "@/constants/navbars";
 import { MembershipPageHeader } from "@/modules/members/header";
 import { MemberShipHeroSection } from "@/modules/members/hero";
-import { HeartHandshakeIcon, StarHalfIcon, StarIcon } from "lucide-react";
+import { HeartHandshakeIcon, StarIcon } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -75,7 +75,7 @@ const MemberShipPage = () => {
                 {/* Membership Plans */}
                 <section
                     id="plan"
-                    className="flex flex-col space-y-4 space-x-12 font-serif md:space-y-8 md:p-8 xl:flex-row"
+                    className="flex flex-col space-y-4 space-x-12 p-2 font-serif md:space-y-8 md:p-8 xl:flex-row"
                 >
                     <div className="w-3/12 p-4">
                         <h1 className="text-4xl md:text-6xl">Membership plans</h1>
@@ -97,7 +97,7 @@ const MemberShipPage = () => {
                                 <div className="divider divider-start"></div>
                                 <div className="card-body">
                                     <ul className="space-y-4">
-                                        <li className="before:mr-2 before:text-green-500 before:content-['✔']">
+                                        <li className="before:mr-2 before:text-rose-800 before:content-['✔']">
                                             Read member-only stories
                                         </li>
                                         <li className="before:mr-2 before:text-green-500 before:content-['✔']">

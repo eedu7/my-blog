@@ -19,7 +19,7 @@ const MemberShipPage = () => {
                 <WhyMembership />
                 <div className="divider divider-start"></div>
                 <MembershipPlans />
-                <section className="flex h-44 flex-col items-center justify-center gap-8 border">
+                <section className="flex h-44 flex-col items-center justify-center gap-8 border-t border-gray-300">
                     <h1 className="text-2xl md:text-4xl">Unlock a world of wisdom</h1>
                     {/* TODO: Just like how you implemented the `Get started` button above in hero section */}
                     <button className="btn btn-sm md:btn-md btn-outline">Get started</button>

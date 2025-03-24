@@ -1,13 +1,13 @@
-import React from "react";
+import SignUpCard from "@/modules/authentication/SignUpCard";
 
 const SignUpPage = () => {
-	return (
-		<div className="h-[100vh] w-[100vw] flex justify-center items-center">
-			<button className="text-4xl border p-4 rounded-md shadow-lg hover:shadow-2xl transition-all duration-100 cursor-pointer font-serif hover:text-purple-900">
-				Sign Up Page
-			</button>
-		</div>
-	);
+    return (
+        <div className="flex h-[100vh] w-[100vw] justify-center">
+            <div className="my-8 p-4 md:my-32">
+                <SignUpCard />
+            </div>
+        </div>
+    );
 };
 
 export default SignUpPage;

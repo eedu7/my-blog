@@ -174,8 +174,8 @@ cython_debug/
 .pypirc
 
 # Docker Volumns
-pgdata/
-postgresql-test/
+*pgdata/
+*postgresql-test/
 
 # Vscpde
 *.vscode/

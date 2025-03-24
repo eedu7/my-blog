@@ -1,4 +1,4 @@
-import { GreenForest, MemberStoryJPG } from "@/constants/images";
+import { MemberStoryJPG } from "@/constants/images";
 import Image from "next/image";
 
 export const MemberShipHeroSection = () => {

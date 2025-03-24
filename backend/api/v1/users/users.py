@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends,status
+from fastapi.responses import JSONResponse
 
 from app.controllers import AuthController, UserController
 from app.models.user import User
@@ -20,6 +21,22 @@ async def get_users(
 
     return users
 
+@user_router.get("/exist/{username}")
+async def get_user(
+    username: str,
+    user_controller: UserController = Depends(Factory().get_user_controller)
+):
+    user = await user_controller.get_by_username(username)
+    if not user:
+        return JSONResponse(
+            status_code=status.HTTP_200_OK,
+            content={"message": f"User with {username} not found"}
+        )
+    return JSONResponse(
+        status_code=status.HTTP_400_BAD_REQUEST,
+        content={"message": f"User with {username} already exists"}
+    )
+    
 
 @user_router.post("/", status_code=201)
 async def register_user(

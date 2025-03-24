@@ -10,8 +10,9 @@ import { z } from "zod";
 
 const checkUsernameExists = async (username: string) => {
     try {
-        await axios.get(`http://127.0.0.1:8000/v1/users/exist/${username}`);
+        await axios.get(`http://127.0.0.1:8000/v1/users/exist/?username=${username}`);
     } catch (error) {
+        alert(JSON.stringify(error))
         return { message: "Username already exists", error: error };
     }
 };

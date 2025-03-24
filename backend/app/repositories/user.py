@@ -1,6 +1,3 @@
-from sqlalchemy import Select
-from sqlalchemy.orm import joinedload
-
 from app.models import User
 from core.repository import BaseRepository
 

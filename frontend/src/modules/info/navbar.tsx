@@ -1,4 +1,4 @@
-import { InfoPageNavbarLinks } from "@/constants/navbars";
+import { InfoPageNavbarLinks, SIGN_UP_LINK } from "@/constants/navbars";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -43,7 +43,9 @@ const NavBarLinks = () => {
                 </a>
             </li>
             <li>
-                <button className="btn btn-outline btn-sm">Get started</button>
+                <Link href={SIGN_UP_LINK.href} className="btn btn-outline btn-sm">
+                    Get started
+                </Link>
             </li>
         </>
     );

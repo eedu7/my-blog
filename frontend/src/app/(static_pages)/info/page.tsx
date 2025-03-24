@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import React from "react";
 
 import AutumLeavesJPG from "@/constants/images";
+import { SIGN_UP_LINK } from "@/constants/navbars";
+import Link from "next/link";
 
 export const metadata: Metadata = {
     title: "MyBlog: Read and write stories.",
@@ -19,9 +20,9 @@ const InfoPage = () => {
                 <p className="text-lg text-gray-500">
                     A place to read, write, and deepen your understanding.
                 </p>
-                <button type="button" className="btn btn-outline">
+                <Link href={SIGN_UP_LINK.href} type="button" className="btn btn-outline">
                     Start reading
-                </button>
+                </Link>
             </div>
             {/* TODO: Remove this when in smaller screen, show this in the tablets */}
             <div className="hidden max-h-96 justify-end lg:flex">

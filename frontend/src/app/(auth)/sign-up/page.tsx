@@ -11,10 +11,28 @@ import { z } from "zod";
 const checkUsernameExists = async (username: string) => {
     try {
         await axios.get(`http://127.0.0.1:8000/v1/users/exist/?username=${username}`);
+        return { message: "Username already exists" };
     } catch (error) {
-        alert(JSON.stringify(error))
-        return { message: "Username already exists", error: error };
+        if (axios.isAxiosError(error)) {
+            if (error.response?.status === 404) {
+                return null;
+            }
+        }
     }
+    return null;
+};
+const checkEmailExists = async (email: string) => {
+    try {
+        await axios.get(`http://127.0.0.1:8000/v1/users/exist/?email=${email}`);
+        return { message: "Email already exists" };
+    } catch (error) {
+        if (axios.isAxiosError(error)) {
+            if (error.response?.status === 404) {
+                return null;
+            }
+        }
+    }
+    return null;
 };
 
 const SignUpFormSchema = z.object({
@@ -63,7 +81,11 @@ const SignUpPage = () => {
                                 onChangeAsync: async ({ value }) => {
                                     return await checkUsernameExists(value);
                                 },
-                                onChangeAsyncDebounceMs: 750,
+                                onChangeAsyncDebounceMs: 500,
+                                onBlurAsync: async ({ value }) => {
+                                    return await checkUsernameExists(value);
+                                },
+                                onBlurAsyncDebounceMs: 500,
                             }}
                             // eslint-disable-next-line react/no-children-prop
                             children={(field) => (
@@ -78,16 +100,17 @@ const SignUpPage = () => {
                                         )}
                                         placeholder="Username"
                                     />
-                                    {field.getMeta().isValidating && (
+                                    {field.state.meta.isValidating && (
                                         <div className="absolute top-1/2 right-6 -translate-y-1/2 transform">
                                             <LoaderCircle className="animate-spin text-gray-500" />
                                         </div>
                                     )}
                                     {field.state.meta.errors.length > 0 && (
                                         <em className="text-xs text-red-500">
-                                            {field.state.meta.errors
+                                            {/* {field.state.meta.errors
                                                 .map((err) => err?.message)
-                                                .join(", ")}
+                                                .join(", ")} */}
+                                            {field.state.meta.errors[0]?.message}
                                         </em>
                                     )}
                                 </div>
@@ -96,6 +119,16 @@ const SignUpPage = () => {
                         <label className="fieldset-label">Email</label>
                         <form.Field
                             name="email"
+                            validators={{
+                                onChangeAsync: async ({ value }) => {
+                                    return await checkEmailExists(value);
+                                },
+                                onChangeAsyncDebounceMs: 500,
+                                onBlurAsync: async ({ value }) => {
+                                    return await checkEmailExists(value);
+                                },
+                                onBlurAsyncDebounceMs: 500,
+                            }}
                             // eslint-disable-next-line react/no-children-prop
                             children={(field) => (
                                 <div className="relative">
@@ -109,16 +142,17 @@ const SignUpPage = () => {
                                         )}
                                         placeholder="Email"
                                     />
-                                    {field.getMeta().isValidating && (
-                                        <div className="absolute top-1/2 right-6 -translate-y-1/2 transform space-y-3">
+                                    {field.state.meta.isValidating && (
+                                        <div className="absolute top-1/2 right-6 -translate-y-1/2 transform">
                                             <LoaderCircle className="animate-spin text-gray-500" />
                                         </div>
                                     )}
                                     {field.state.meta.errors.length > 0 && (
                                         <em className="text-xs text-red-500">
-                                            {field.state.meta.errors
+                                            {/* {field.state.meta.errors
                                                 .map((err) => err?.message)
-                                                .join(", ")}
+                                                .join(", ")} */}
+                                            {field.state.meta.errors[0]?.message}
                                         </em>
                                     )}
                                 </div>

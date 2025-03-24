@@ -2,9 +2,8 @@ import React from "react";
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
     return (
-        <main className="mx-auto mt-44 grid max-w-7xl grid-cols-2">
-            <section className="border">{children}</section>
-            <section></section>
+        <main className="mx-auto mt-16 flex max-w-7xl justify-center p-1 md:mt-36 md:p-0">
+            <section className="shadow-md">{children}</section>
         </main>
     );
 };

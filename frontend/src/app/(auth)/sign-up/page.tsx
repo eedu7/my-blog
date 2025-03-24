@@ -1,18 +1,18 @@
 "use client";
 
-import { PRIVACY_LINK, SIGN_UP_LINK, TERMS_LINK } from "@/constants/navbars";
+import { PRIVACY_LINK, SIGN_IN_LINK, SIGN_UP_LINK, TERMS_LINK } from "@/constants/navbars";
 import { useForm } from "@tanstack/react-form";
 import axios from "axios";
-import { LoaderCircle, LoaderIcon, LoaderPinwheelIcon } from "lucide-react";
+import { LoaderCircle } from "lucide-react";
 import Link from "next/link";
 import { cn } from "tailwind-cn";
 import { z } from "zod";
 
 const checkUsernameExists = async (username: string) => {
     try {
-        const response = await axios.get(`http://127.0.0.1:8000/v1/users/exist/${username}`);
+        await axios.get(`http://127.0.0.1:8000/v1/users/exist/${username}`);
     } catch (error) {
-        return { message: "Username already exists" };
+        return { message: "Username already exists", error: error };
     }
 };
 
@@ -52,7 +52,7 @@ const SignUpPage = () => {
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <div className="card-body">
                     <div>
-                        <h1 className="card-title">Sign Up</h1>
+                        <h1 className="card-title">Join MyBlog.</h1>
                     </div>
                     <fieldset className="fieldset">
                         <label className="fieldset-label">Username</label>
@@ -64,6 +64,7 @@ const SignUpPage = () => {
                                 },
                                 onChangeAsyncDebounceMs: 750,
                             }}
+                            // eslint-disable-next-line react/no-children-prop
                             children={(field) => (
                                 <div className="relative">
                                     <input
@@ -94,6 +95,7 @@ const SignUpPage = () => {
                         <label className="fieldset-label">Email</label>
                         <form.Field
                             name="email"
+                            // eslint-disable-next-line react/no-children-prop
                             children={(field) => (
                                 <div className="relative">
                                     <input
@@ -124,6 +126,7 @@ const SignUpPage = () => {
                         <label className="fieldset-label">Password</label>
                         <form.Field
                             name="password"
+                            // eslint-disable-next-line react/no-children-prop
                             children={(field) => (
                                 <div>
                                     <input
@@ -149,7 +152,7 @@ const SignUpPage = () => {
                         <div className="flex w-full items-center justify-end">
                             {/* TODO: Add link to the Forgot Password */}
 
-                            <Link className="link link-hover link-primary" href={SIGN_UP_LINK.href}>
+                            <Link className="link link-hover link-primary" href={SIGN_IN_LINK.href}>
                                 Already have an account? Sign in
                             </Link>
                         </div>
@@ -158,11 +161,11 @@ const SignUpPage = () => {
                         </button>
                     </fieldset>
                     <p className="text-[0.8rem] text-gray-600">
-                        Click "Register" to agree to MyBlog's{" "}
+                        Click &quot;Register&quot; to agree to MyBlog&apos;s{" "}
                         <Link className="link" href={TERMS_LINK.href}>
                             Terms of Service
                         </Link>{" "}
-                        and acknowledge that MyBlog's{" "}
+                        and acknowledge that MyBlog&apos;s{" "}
                         <Link className="link" href={PRIVACY_LINK.href}>
                             Privacy Policy
                         </Link>{" "}

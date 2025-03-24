@@ -38,12 +38,13 @@ const SignInPage = () => {
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                 <div className="card-body">
                     <div>
-                        <h1 className="card-title">Sign In</h1>
+                        <h1 className="card-title">Welcome back.</h1>
                     </div>
                     <fieldset className="fieldset">
                         <label className="fieldset-label">Email</label>
                         <form.Field
                             name="email"
+                            // eslint-disable-next-line react/no-children-prop
                             children={(field) => (
                                 <div>
                                     <input
@@ -69,6 +70,7 @@ const SignInPage = () => {
                         <label className="fieldset-label">Password</label>
                         <form.Field
                             name="password"
+                            // eslint-disable-next-line react/no-children-prop
                             children={(field) => (
                                 <div>
                                     <input
@@ -112,11 +114,11 @@ const SignInPage = () => {
                         </button>
                     </fieldset>
                     <p className="text-[0.8rem] text-gray-600">
-                        Click "Login" to agree to MyBlog's{" "}
+                        Click &quot;Register&quot; to agree to MyBlog&apos;s{" "}
                         <Link className="link" href={TERMS_LINK.href}>
                             Terms of Service
                         </Link>{" "}
-                        and acknowledge that MyBlog's{" "}
+                        and acknowledge that MyBlog&apos;s{" "}
                         <Link className="link" href={PRIVACY_LINK.href}>
                             Privacy Policy
                         </Link>{" "}

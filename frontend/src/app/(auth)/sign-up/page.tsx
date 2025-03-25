@@ -1,17 +1,17 @@
 "use client";
 
 import axios from "axios";
-import { z } from "zod";
-import { cn } from "tailwind-cn";
 import { useRouter } from "next/navigation";
+import { cn } from "tailwind-cn";
+import { z } from "zod";
 
-import Link from "next/link";
 import { LoaderCircle } from "lucide-react";
+import Link from "next/link";
 
 import { useAuth } from "@/modules/authentication/hooks/useAuth";
 import { useForm } from "@tanstack/react-form";
 
-import { PRIVACY_LINK, SIGN_IN_LINK, SIGN_UP_LINK, TERMS_LINK } from "@/constants/navbars";
+import { PRIVACY_LINK, SIGN_IN_LINK, TERMS_LINK } from "@/constants/navbars";
 
 const checkUsernameExists = async (username: string) => {
     try {

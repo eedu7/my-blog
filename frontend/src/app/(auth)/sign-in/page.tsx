@@ -1,10 +1,15 @@
 "use client";
 
-import { PRIVACY_LINK, SIGN_UP_LINK, TERMS_LINK } from "@/constants/navbars";
-import { useForm } from "@tanstack/react-form";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { cn } from "tailwind-cn";
 import { z } from "zod";
+
+import Link from "next/link";
+
+import { useAuth } from "@/modules/authentication/hooks/useAuth";
+import { useForm } from "@tanstack/react-form";
+
+import { PRIVACY_LINK, SIGN_UP_LINK, TERMS_LINK } from "@/constants/navbars";
 
 const SignInFormSchema = z.object({
     email: z.string().email(),
@@ -15,6 +20,9 @@ const SignInFormSchema = z.object({
 });
 
 const SignInPage = () => {
+    const { login } = useAuth();
+    const router = useRouter();
+
     const form = useForm({
         defaultValues: {
             email: "",
@@ -23,7 +31,10 @@ const SignInPage = () => {
         validators: {
             onChange: SignInFormSchema,
         },
-        onSubmit: ({ value }) => alert(JSON.stringify(value)),
+        onSubmit: ({ value }) => {
+            login.mutate(value);
+            router.push(process.env.NEXT_PUBLIC_REDIRECT_SIGNIN || "/");
+        },
     });
 
     return (
@@ -109,8 +120,12 @@ const SignInPage = () => {
                                 </Link>
                             </div>
                         </div>
-                        <button type="submit" className="btn btn-neutral mt-4">
-                            Login
+                        <button
+                            disabled={login.isPending}
+                            type="submit"
+                            className="btn btn-neutral mt-4"
+                        >
+                            {!login.isPending ? "Login" : "Log in ..."}
                         </button>
                     </fieldset>
                     <p className="text-[0.8rem] text-gray-600">

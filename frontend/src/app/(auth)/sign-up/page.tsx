@@ -15,8 +15,11 @@ import { PRIVACY_LINK, SIGN_IN_LINK, TERMS_LINK } from "@/constants/navbars";
 
 const checkUsernameExists = async (username: string) => {
     try {
-        await axios.get(`http://127.0.0.1:8000/v1/users/exist/?username=${username}`);
-        return { message: "Username already exists" };
+        const response = await axios.get(
+            `http://127.0.0.1:8000/v1/users/exist/?username=${username}`,
+        );
+        // return { message: "Username already exists" };
+        return response.data;
     } catch (error) {
         if (axios.isAxiosError(error)) {
             if (error.response?.status === 404) {

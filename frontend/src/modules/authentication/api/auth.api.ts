@@ -25,3 +25,13 @@ export const loginUser = async (data: LoginUserRequest): Promise<LoginUserRespon
         throw new Error("User loing failed!");
     }
 };
+
+export const checkUserExist = async ({ field, value }: { field: string; value: string }) => {
+    try {
+        const response = await axiosClient.get(`/v1/users/exists/?${field}=${value}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error in checking the user", error);
+        throw new Error("Error in checking the user");
+    }
+};

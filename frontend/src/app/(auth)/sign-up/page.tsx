@@ -1,12 +1,17 @@
 "use client";
 
-import { PRIVACY_LINK, SIGN_IN_LINK, SIGN_UP_LINK, TERMS_LINK } from "@/constants/navbars";
-import { useForm } from "@tanstack/react-form";
 import axios from "axios";
-import { LoaderCircle } from "lucide-react";
-import Link from "next/link";
-import { cn } from "tailwind-cn";
 import { z } from "zod";
+import { cn } from "tailwind-cn";
+import { useRouter } from "next/navigation";
+
+import Link from "next/link";
+import { LoaderCircle } from "lucide-react";
+
+import { useAuth } from "@/modules/authentication/hooks/useAuth";
+import { useForm } from "@tanstack/react-form";
+
+import { PRIVACY_LINK, SIGN_IN_LINK, SIGN_UP_LINK, TERMS_LINK } from "@/constants/navbars";
 
 const checkUsernameExists = async (username: string) => {
     try {
@@ -48,6 +53,9 @@ const SignUpFormSchema = z.object({
 });
 
 const SignUpPage = () => {
+    const { register } = useAuth();
+    const router = useRouter();
+
     const form = useForm({
         defaultValues: {
             username: "",
@@ -57,7 +65,10 @@ const SignUpPage = () => {
         validators: {
             onChange: SignUpFormSchema,
         },
-        onSubmit: ({ value }) => alert(JSON.stringify(value)),
+        onSubmit: ({ value }) => {
+            register.mutate(value);
+            router.push(process.env.NEXT_PUBLIC_REDIRECT_SIGNUP || "/");
+        },
     });
 
     return (
@@ -191,8 +202,12 @@ const SignUpPage = () => {
                                 Already have an account? Sign in
                             </Link>
                         </div>
-                        <button type="submit" className="btn btn-neutral mt-4">
-                            Register
+                        <button
+                            disabled={register.isPending}
+                            type="submit"
+                            className="btn btn-neutral mt-4"
+                        >
+                            {!register.isPending ? "Register" : "Registration..."}
                         </button>
                     </fieldset>
                     <p className="text-[0.8rem] text-gray-600">
